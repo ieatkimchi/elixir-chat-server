@@ -13,6 +13,12 @@ defmodule Chat.Server do
     GenServer.cast(:chat, {:add_message, message})
   end
 
+  def new_chat do
+    Process.whereis(:chat) |> Process.exit(:kill)
+    IO.puts "New Chat Started on.."
+    Process.whereis(:chat)
+  end
+
   def init(messages) do
     {:ok, messages}
   end
