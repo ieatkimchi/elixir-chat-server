@@ -2,15 +2,15 @@ defmodule Chat.Server do
   use GenServer
 
   def start_link do
-    GenServer.start_link(__MODULE__, [])
+    GenServer.start_link(__MODULE__, [], name: :chat)
   end
 
-  def get_messages(pid) do
-    GenServer.call(pid, :get_messages)
+  def get_messages do
+    GenServer.call(:chat, :get_messages)
   end
 
-  def add_message(pid, message) do
-    GenServer.cast(pid, {:add_message, message})
+  def add_message(message) do
+    GenServer.cast(:chat, {:add_message, message})
   end
 
   def init(messages) do
