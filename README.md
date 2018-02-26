@@ -9,4 +9,4 @@ Simple Elixir Chat example using GenServer and Supervisor
   - add_message
   - new_chat
 
-- App can only run one chat at a time, creating a new chat will kill pid and Supervisor will automatically start a new chat process. 
+- App can only run one chat at a time, creating a new chat will kill pid and Supervisor will automatically start a new chat process. implements one_for_one strategy
